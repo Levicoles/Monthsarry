@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Updated viewport to prevent accidental zooming on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy 39th Monthsary</title>
+    <!-- Importing beautiful fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Styling */
+        :root {
+            --primary-color: #ff4d6d;
+            --background-color: #fff0f3;
+            --text-color: #590d22;
+            --card-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            text-align: center;
+            position: relative;
+            /* Ensures smooth scrolling on mobile */
+            -webkit-overflow-scrolling: touch; 
+        }
+
+        /* Floating Hearts Container */
+        #hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            opacity: 0.6;
+            animation: floatUp 5s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Main Content Wrapper - Mobile Focused */
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 92%; /* Takes up most of the mobile screen */
+            max-width: 500px; /* Keeps it neat if viewed on desktop */
+            margin: 0 auto;
+            padding: 30px 10px 80px 10px; /* Extra bottom padding for the music button */
+        }
+
+        /* Header / Landing */
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem; /* Scaled down for mobile */
+            color: var(--primary-color);
+            text-shadow: 2px 2px 10px rgba(255, 77, 109, 0.3);
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+            line-height: 1.2;
+        }
+
+        /* Letter Section */
+        .love-letter {
+            background: var(--card-bg);
+            padding: 25px 20px; /* Reduced padding for mobile */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.15);
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+            animation: slideUp 1.5s ease-out;
+        }
+
+        .love-letter p {
+            font-size: 1.05rem; /* Better readability on small screens */
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Photo Placeholder */
+        .photo-frame {
+            margin: 25px auto;
+            width: 100%; /* Ensures it doesn't break the container */
+            border: 6px solid white;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-frame:active {
+            /* Mobile-friendly tap effect instead of hover */
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 2px;
+        }
+
+        /* Surprise Button */
+        .surprise-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            font-family: 'Lora', serif;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            width: 100%; /* Full width button on mobile */
+            max-width: 300px;
+        }
+
+        .surprise-btn:active {
+            background-color: #c9184a;
+            transform: translateY(2px);
+        }
+
+        #surprise-message {
+            display: none;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: #c9184a;
+            margin-top: 15px;
+            animation: fadeIn 1s ease-in;
+            padding: 0 10px;
+        }
+
+        /* Music Button */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Prevents the tap highlight box on mobile */
+            -webkit-tap-highlight-color: transparent; 
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Extra small devices (like iPhone SE) */
+        @media (max-width: 360px) {
+            h1 { font-size: 2.5rem; }
+            .love-letter { padding: 20px 15px; }
+            .love-letter p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Audio -->
+    <audio id="bg-music" loop>
+        <source src="panaginit.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-btn" id="music-toggle" onclick="toggleMusic()">🎵</button>
+
+    <div id="hearts-container"></div>
+
+    <div class="container">
+        <h1>Happy 39th Monthsary, My Love!</h1>
+        
+        <div class="love-letter">
+            <p>My dearest,</p>
+            <p>Happy 39 months to us! It feels like just yesterday that we started this beautiful journey, yet we've built so many wonderful memories together.</p>
+            <p>Thank you for being my rock, my safe space, and my greatest adventure. Every laugh, every late-night conversation, and every quiet moment we share means the world to me.</p>
+            
+            <!-- Photo Placeholder -->
+            <div class="photo-frame">
+                <!-- Replace the src URL below with your own image link -->
+                <img src="image2.jpg" alt="Us">
+            </div>
+
+            <p>As we celebrate today, I am filled with so much hope and excitement for our future. I look forward to holding your hand through all the months and years to come.</p>
+            <p><em>Forever and always yours.</em></p>
+        </div>
+
+        <button class="surprise-btn" onclick="revealSurprise()">Tap for a Surprise 💝</button>
+        
+        <div id="surprise-message">
+            You are my today and all of my tomorrows. I love you more than words can say! 💖
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Reveal Surprise Message Logic
+        function revealSurprise() {
+            const message = document.getElementById("surprise-message");
+            const button = document.querySelector(".surprise-btn");
+            
+            message.style.display = "block";
+            button.style.display = "none";
+            
+            // Create a burst of hearts when clicked
+            for(let i = 0; i < 15; i++) {
+                setTimeout(createHeart, i * 60);
+            }
+        }
+
+        // Background Music Toggle Logic
+        let isPlaying = false;
+        function toggleMusic() {
+            const audio = document.getElementById("bg-music");
+            const btn = document.getElementById("music-toggle");
+            
+            if (isPlaying) {
+                audio.pause();
+                btn.innerHTML = "🎵";
+                isPlaying = false;
+            } else {
+                audio.play().catch(error => alert("Please add your music file to play! (Replace 'your-song.mp3')"));
+                btn.innerHTML = "⏸️";
+                isPlaying = true;
+            }
+        }
+
+        // Floating Hearts Background Logic
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "♥";
+            
+            // Mobile-optimized heart sizes
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 3 + "s"; // Faster on mobile: 3s to 6s
+            heart.style.fontSize = Math.random() * 1.2 + 0.8 + "rem"; 
+            
+            document.getElementById("hearts-container").appendChild(heart);
+            
+            // Clean up DOM to keep mobile browser running smoothly
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Generate a new heart every 500 milliseconds (slightly less frequent to save mobile battery)
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
